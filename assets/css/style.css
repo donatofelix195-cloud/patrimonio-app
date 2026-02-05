@@ -308,6 +308,26 @@ body {
     border-radius: 20px;
 }
 
+.update-btn {
+    background: var(--glass);
+    border: 1px solid var(--border);
+    color: var(--text-dim);
+    font-size: 0.65rem;
+    padding: 6px 12px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-family: var(--font-main);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.update-btn:hover {
+    background: var(--bg-card-hover);
+    color: var(--gold);
+    border-color: var(--gold-dim);
+}
+
 .dot {
     width: 6px;
     height: 6px;

@@ -81,129 +81,132 @@
             <div class="sync-status" id="sync">
                 <span class="dot"></span> SINCRONIZANDO...
             </div>
+            <button onclick="location.reload(true)" class="update-btn" title="Forzar Actualización">🔄
+                Actualizar</button>
         </div>
+    </div>
 
-        <!-- Exchange Rates Grid -->
-        <div class="rate-grid">
-            <div class="rate-card active" id="c-usd" onclick="app.setRate('usd')">
-                <div class="card-icon">🇺🇸</div>
-                <span>BCV DÓLAR</span>
-                <div class="value" id="v-usd">--</div>
-            </div>
-            <div class="rate-card" id="c-eur" onclick="app.setRate('eur')">
-                <div class="card-icon">🇪🇺</div>
-                <span>BCV EURO</span>
-                <div class="value" id="v-eur">--</div>
-            </div>
-            <div class="rate-card" id="c-bin" onclick="app.setRate('bin')">
-                <div class="card-icon">🪙</div>
-                <span>BINANCE USDT</span>
-                <div class="value" id="v-bin">--</div>
-            </div>
-            <div class="rate-card" id="c-par" onclick="app.setRate('par')">
-                <div class="card-icon">💸</div>
-                <span>PARALELO</span>
-                <div class="value" id="v-par">--</div>
-            </div>
+    <!-- Exchange Rates Grid -->
+    <div class="rate-grid">
+        <div class="rate-card active" id="c-usd" onclick="app.setRate('usd')">
+            <div class="card-icon">🇺🇸</div>
+            <span>BCV DÓLAR</span>
+            <div class="value" id="v-usd">--</div>
         </div>
-
-        <!-- Main Balance Display -->
-        <div class="balance-grid">
-            <div class="balance-card main-card">
-                <h4 id="l-main">SALDO EN DÓLARES</h4>
-                <div class="main-val" id="total-main">0.00</div>
-            </div>
-            <div class="balance-card sec-card">
-                <h4 id="l-sec">SALDO EN BOLÍVARES</h4>
-                <div class="sec-val" id="total-sec">0.00</div>
-            </div>
+        <div class="rate-card" id="c-eur" onclick="app.setRate('eur')">
+            <div class="card-icon">🇪🇺</div>
+            <span>BCV EURO</span>
+            <div class="value" id="v-eur">--</div>
         </div>
-
-        <!-- Monthly Summary Statistics -->
-        <div class="monthly-summary">
-            <div class="summary-item">
-                <span class="label">INGRESOS MES</span>
-                <div class="val" id="month-in">0.00</div>
-            </div>
-            <div class="summary-item">
-                <span class="label">GASTOS MES</span>
-                <div class="val text-danger" id="month-out">0.00</div>
-            </div>
-            <div class="summary-item main-sum">
-                <span class="label">NETO DEL MES</span>
-                <div class="val" id="month-net">0.00</div>
-            </div>
+        <div class="rate-card" id="c-bin" onclick="app.setRate('bin')">
+            <div class="card-icon">🪙</div>
+            <span>BINANCE USDT</span>
+            <div class="value" id="v-bin">--</div>
         </div>
+        <div class="rate-card" id="c-par" onclick="app.setRate('par')">
+            <div class="card-icon">💸</div>
+            <span>PARALELO</span>
+            <div class="value" id="v-par">--</div>
+        </div>
+    </div>
 
-        <!-- Float Action Button -->
-        <button class="fab" onclick="app.toggleForm()" id="fab-btn">+</button>
+    <!-- Main Balance Display -->
+    <div class="balance-grid">
+        <div class="balance-card main-card">
+            <h4 id="l-main">SALDO EN DÓLARES</h4>
+            <div class="main-val" id="total-main">0.00</div>
+        </div>
+        <div class="balance-card sec-card">
+            <h4 id="l-sec">SALDO EN BOLÍVARES</h4>
+            <div class="sec-val" id="total-sec">0.00</div>
+        </div>
+    </div>
 
-        <!-- Transaction Form (Modal on Mobile) -->
-        <div class="form-overlay" id="form-overlay" onclick="app.toggleForm()"></div>
-        <div class="form-container" id="form-sheet">
-            <div class="sheet-handle"></div>
-            <h3>Nueva Transacción</h3>
-            <div class="form-row">
-                <input type="text" id="desc" placeholder="Concepto (ej. Salario)">
-                <input type="text" id="amt" placeholder="Monto" inputmode="decimal" step="any">
-                <div class="select-group">
-                    <select id="type">
-                        <option value="in">INGRESO (+)</option>
-                        <option value="out">GASTO (-)</option>
-                    </select>
-                    <select id="curr">
-                        <option value="USD">DÓLARES ($)</option>
-                        <option value="BS">BOLÍVARES (Bs)</option>
-                    </select>
-                </div>
-                <!-- Category Select (V11) -->
-                <select id="cat" class="cat-select">
-                    <option value="Otros">Categoría: Otros</option>
-                    <option value="Comida">Alimentación</option>
-                    <option value="Servicios">Servicios</option>
-                    <option value="Gusto">Gustos / Ocio</option>
-                    <option value="Transporte">Transporte</option>
-                    <option value="Salud">Salud</option>
+    <!-- Monthly Summary Statistics -->
+    <div class="monthly-summary">
+        <div class="summary-item">
+            <span class="label">INGRESOS MES</span>
+            <div class="val" id="month-in">0.00</div>
+        </div>
+        <div class="summary-item">
+            <span class="label">GASTOS MES</span>
+            <div class="val text-danger" id="month-out">0.00</div>
+        </div>
+        <div class="summary-item main-sum">
+            <span class="label">NETO DEL MES</span>
+            <div class="val" id="month-net">0.00</div>
+        </div>
+    </div>
+
+    <!-- Float Action Button -->
+    <button class="fab" onclick="app.toggleForm()" id="fab-btn">+</button>
+
+    <!-- Transaction Form (Modal on Mobile) -->
+    <div class="form-overlay" id="form-overlay" onclick="app.toggleForm()"></div>
+    <div class="form-container" id="form-sheet">
+        <div class="sheet-handle"></div>
+        <h3>Nueva Transacción</h3>
+        <div class="form-row">
+            <input type="text" id="desc" placeholder="Concepto (ej. Salario)">
+            <input type="text" id="amt" placeholder="Monto" inputmode="decimal" step="any">
+            <div class="select-group">
+                <select id="type">
+                    <option value="in">INGRESO (+)</option>
+                    <option value="out">GASTO (-)</option>
                 </select>
-                <button class="add-btn" onclick="app.add()">
-                    <span>REGISTRAR</span>
-                </button>
+                <select id="curr">
+                    <option value="USD">DÓLARES ($)</option>
+                    <option value="BS">BOLÍVARES (Bs)</option>
+                </select>
             </div>
+            <!-- Category Select (V11) -->
+            <select id="cat" class="cat-select">
+                <option value="Otros">Categoría: Otros</option>
+                <option value="Comida">Alimentación</option>
+                <option value="Servicios">Servicios</option>
+                <option value="Gusto">Gustos / Ocio</option>
+                <option value="Transporte">Transporte</option>
+                <option value="Salud">Salud</option>
+            </select>
+            <button class="add-btn" onclick="app.add()">
+                <span>REGISTRAR</span>
+            </button>
         </div>
+    </div>
 
-        <!-- Month Navigation & Search -->
-        <div class="controls-row">
-            <div class="month-nav">
-                <button onclick="app.changeMonth(-1)">❮</button>
-                <span id="current-month-display">CARGANDO...</span>
-                <button onclick="app.changeMonth(1)">❯</button>
-            </div>
-            <div class="actions-group">
-                <input type="text" id="query" placeholder="Buscar transacción..." oninput="app.render()">
-                <button class="export-btn" onclick="app.exportCSV()" title="Exportar a CSV">
-                    <span>📊</span>
-                </button>
-            </div>
+    <!-- Month Navigation & Search -->
+    <div class="controls-row">
+        <div class="month-nav">
+            <button onclick="app.changeMonth(-1)">❮</button>
+            <span id="current-month-display">CARGANDO...</span>
+            <button onclick="app.changeMonth(1)">❯</button>
         </div>
+        <div class="actions-group">
+            <input type="text" id="query" placeholder="Buscar transacción..." oninput="app.render()">
+            <button class="export-btn" onclick="app.exportCSV()" title="Exportar a CSV">
+                <span>📊</span>
+            </button>
+        </div>
+    </div>
 
-        <!-- Transactions Table -->
-        <div class="table-container">
-            <table>
-                <thead>
-                    <tr>
-                        <th>FECHA</th>
-                        <th>CONCEPTO</th>
-                        <th>TIPO</th>
-                        <th class="text-right">MONTO FIJO</th>
-                        <th class="text-right" id="h-dyn">VALOR DINÁMICO</th>
-                        <th class="text-center">ACCIÓN</th>
-                    </tr>
-                </thead>
-                <tbody id="tbody">
-                    <!-- Rows injected by JS -->
-                </tbody>
-            </table>
-        </div>
+    <!-- Transactions Table -->
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>FECHA</th>
+                    <th>CONCEPTO</th>
+                    <th>TIPO</th>
+                    <th class="text-right">MONTO FIJO</th>
+                    <th class="text-right" id="h-dyn">VALOR DINÁMICO</th>
+                    <th class="text-center">ACCIÓN</th>
+                </tr>
+            </thead>
+            <tbody id="tbody">
+                <!-- Rows injected by JS -->
+            </tbody>
+        </table>
+    </div>
     </div>
 
     <script src="assets/js/app.js"></script>

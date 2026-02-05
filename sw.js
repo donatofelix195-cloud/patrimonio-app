@@ -1,4 +1,4 @@
-const CACHE_NAME = 'patrimonio-pro-v1.10'; // Version bump
+const CACHE_NAME = 'patrimonio-pro-v1.11'; // Version bump
 const ASSETS = [
     './',
     './index.html',

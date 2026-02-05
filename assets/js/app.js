@@ -92,7 +92,10 @@ const app = {
 
     parseAmt: function (v) {
         if (!v) return 0;
-        return parseFloat(String(v).replace(',', '.'));
+        // Normalize: remove any characters that aren't digits, dot or comma
+        // Then convert comma to dot and parse
+        let clean = String(v).replace(/[^\d,.]/g, '').replace(',', '.');
+        return parseFloat(clean) || 0;
     },
 
     calcFromUsd: function () {
@@ -206,6 +209,13 @@ const app = {
         // Auto-close form on mobile after adding
         if (window.innerWidth < 768) this.toggleForm();
 
+        this.render();
+    },
+
+    remove: function (id) {
+        if (!confirm("¿Eliminar este registro?")) return;
+        this.db = this.db.filter(t => t.id !== id);
+        localStorage.setItem('patrimonio_final_v10', JSON.stringify(this.db));
         this.render();
     },
 
