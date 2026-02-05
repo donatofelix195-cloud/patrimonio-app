@@ -90,21 +90,26 @@ const app = {
         this.updateRateUI();
     },
 
+    parseAmt: function (v) {
+        if (!v) return 0;
+        return parseFloat(String(v).replace(',', '.'));
+    },
+
     calcFromUsd: function () {
         const u = document.getElementById('q-usd');
         const b = document.getElementById('q-bs');
-        const val = parseFloat(u.value);
+        const val = this.parseAmt(u.value);
         const r = this.rates[this.activeKey];
-        if (!isNaN(val)) b.value = (val * r).toFixed(2);
+        if (!isNaN(val) && u.value !== '') b.value = (val * r).toFixed(2);
         else b.value = '';
     },
 
     calcFromBs: function () {
         const u = document.getElementById('q-usd');
         const b = document.getElementById('q-bs');
-        const val = parseFloat(b.value);
+        const val = this.parseAmt(b.value);
         const r = this.rates[this.activeKey];
-        if (!isNaN(val)) u.value = (val / r).toFixed(2);
+        if (!isNaN(val) && b.value !== '') u.value = (val / r).toFixed(2);
         else u.value = '';
     },
 
@@ -170,7 +175,7 @@ const app = {
         const catInput = document.getElementById('cat');
 
         const d = descInput.value;
-        const a = parseFloat(amtInput.value);
+        const a = this.parseAmt(amtInput.value);
         const c = catInput.value;
 
         if (!d || isNaN(a)) {

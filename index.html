@@ -52,7 +52,7 @@
                     <div class="conv-field">
                         <label>USD ($)</label>
                         <div class="input-with-action">
-                            <input type="number" id="q-usd" placeholder="0.00" oninput="app.calcFromUsd()"
+                            <input type="text" id="q-usd" placeholder="0.00" oninput="app.calcFromUsd()"
                                 inputmode="decimal" step="any">
                             <button onclick="app.copyVal('q-usd')" class="copy-small">📋</button>
                         </div>
@@ -61,7 +61,7 @@
                     <div class="conv-field">
                         <label>VES (Bs)</label>
                         <div class="input-with-action">
-                            <input type="number" id="q-bs" placeholder="0.00" oninput="app.calcFromBs()"
+                            <input type="text" id="q-bs" placeholder="0.00" oninput="app.calcFromBs()"
                                 inputmode="decimal" step="any">
                             <button onclick="app.copyVal('q-bs')" class="copy-small">📋</button>
                         </div>
@@ -145,7 +145,7 @@
             <h3>Nueva Transacción</h3>
             <div class="form-row">
                 <input type="text" id="desc" placeholder="Concepto (ej. Salario)">
-                <input type="number" id="amt" placeholder="Monto" inputmode="decimal" step="any">
+                <input type="text" id="amt" placeholder="Monto" inputmode="decimal" step="any">
                 <div class="select-group">
                     <select id="type">
                         <option value="in">INGRESO (+)</option>
